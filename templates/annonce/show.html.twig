@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce{% endblock %}
+
+{% block body %}
+    <h1>Annonce</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ annonce.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ annonce.title }}</td>
+            </tr>
+            <tr>
+                <th>PuplicationDate</th>
+                <td>{{ annonce.puplicationDate ? annonce.puplicationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NbrLike</th>
+                <td>{{ annonce.nbrLike }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_annonce_index') }}">back to list</a>
+
+    <a href="{{ path('app_annonce_edit', {'id': annonce.id}) }}">edit</a>
+
+    {{ include('annonce/_delete_form.html.twig') }}
+{% endblock %}
